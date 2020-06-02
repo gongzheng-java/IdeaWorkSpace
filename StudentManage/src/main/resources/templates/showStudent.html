@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+    <script type="text/javascript" src="/bootstrap/js/jquery-1.8.3.js"></script>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/showStudent.css"/>
+    <script type="text/javascript" src="/js/showStudent.js"></script>
+
+</head>
+
+<body>
+<div id="div01">
+    <h3>thremleaf模板练习</h3>
+    <!--学生信息查询-->
+    <div th:replace="layout/stuQuery::stuQuery"></div>
+    <!--展示学生信息-->
+    <div th:replace="layout/stuShow::stuShow"></div>
+    <!--分页信息-->
+    <div th:replace="layout/stuPage::stuPage"></div>
+    <div>
+        <button id="js-export" type="button" class="btn btn-primary"  style="width: 200px;height: 30px">导出Excel</button>
+    </div>
+</div>
+</body>
+
+</html>

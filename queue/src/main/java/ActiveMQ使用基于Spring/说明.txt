@@ -1,0 +1,9 @@
+
+
+说明：该实例是ActiveMQ的队列模型的配置，如果想进行主题模型，只需要修改两者的xml文件里面的队列即可，改为如下：
+
+<!-- 消息目的地  (主题模式)-->
+    <!--<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQTopic">
+        &lt;!&ndash;配置队列模型的消息名称&ndash;&gt;
+        <constructor-arg value="SpringActiveMQMsgTopic"/>
+    </bean>-->

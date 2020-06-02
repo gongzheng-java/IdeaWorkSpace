@@ -1,0 +1,50 @@
+#div01 {
+				padding-top: 100px;
+				width: 1000px;
+				margin: 0 auto;
+	            height: 1000px;
+			}
+
+table {
+	width: 1000px;
+}
+
+
+#table2 tr th,
+td {
+	height: 30px;
+	text-align: center;
+}
+
+			#div03 {
+				margin-top: 10px;
+				width: 1000px;
+				float: right;
+				/*border: 1px solid salmon;*/
+			}
+
+			#a {
+				float: left;
+			}
+
+			#b {
+				float: right;
+				margin-top: -20px;
+			}
+
+			button {
+				width: 60px;
+				height: 26px;
+			}
+			h3{
+				text-align:center;
+				text-decoration:underline;
+			}
+#add_btn {
+	width: 80px;
+	height: 26px;
+}
+
+#queryDiv{
+	width: 1000px;
+}

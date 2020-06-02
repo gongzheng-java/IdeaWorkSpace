@@ -1,0 +1,5 @@
+
+这是三个示例写在同一个项目中
+ 示例1：queue主题模型的消息 + queue队列模型的消息
+
+ 示例2：ActiveMQ使用基于Spring + 配置文件 consumer.xml、producer.xml

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="queryDiv" th:fragment="stuQuery">
+    <form action="/student/findPageStu" method="post" th:id="loginForm">
+        <th:block th:object="${student}">
+        <table>
+            <tr>
+                <td align="left" width="50px"><strong>查询：</strong></td>
+                <td>姓名&nbsp;<input type="text" name="name" placeholder="请输入学生的姓名" th:value="${student?.name}"/></td>
+                <td>性别&nbsp;<input type="text" name="gender" th:value="*{gender}"/></td>
+                <td>年级
+                    <select name="classid" style="height: 26px;">
+                        <option th:value="0">--请选择--</option>
+                        <option th:each="grade:${grades}" th:value="${grade.id}" th:text="${grade.classname}"
+                                th:selected="${student.classid == grade.id}"></option>
+                    </select>
+                </td>
+                <!--给type="date" 设置默认值的话，格式必须是yyyy-MM-dd -->
+                <td>时间&nbsp;<input type="date" name="createtime" style="width: 150px;height: 26px;" th:value="*{#dates.format(createtime, 'yyyy-MM-dd')}"/></td>
+                <td>
+                    <button type="button" class="btn btn-success btn-sm" id="query_btn">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 查询
+                    </button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-info btn-sm" id="add_btn">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 新增信息
+                    </button>
+                </td>
+            </tr>
+        </table>
+        </th:block>
+    </form>
+</div>
+</html>

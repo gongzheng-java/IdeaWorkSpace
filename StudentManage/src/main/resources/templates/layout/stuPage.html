@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="div03" th:fragment="stuPage">
+    <!-- 分页文字信息 -->
+    <div id="a">
+        <span th:text="|总页数:${TotalPage}, 信息总量:${Total}, 当前页:${pageNumber}|"></span>
+    </div>
+    <div id="b">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                   <!-- <a  th:href="@{http://www.ityouknow.com/{type}(type=${type})}">link1</a>
+
+                    <a href="details.html" th:href="@{http://www.ityouknow.com/{pageId}/can-use-springcloud.html(pageId=${pageId})}">view</a>
+
+                     th:href="@{/Controller/behavior(param1=1,param2=${person.id})}"-->
+                    <a th:href="@{/student/findPageStu(pageNumber=1,name=${student.name},gender =${student.gender})}" aria-label="Previous">首页
+                    </a>
+                </li>
+                <!--上一页-->
+                <li th:unless="${pageNumber==1}">
+                    <a th:href="@{'/student/findPageStu?pageNumber='+${pageNumber-1}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+
+                <!--当前页开始，当前页+5 每次显示五页数据-->
+                <th:block th:if="${TotalPage < 5}" th:each="i:${#numbers.sequence(1,TotalPage)}">
+                    <li th:class="${pageNumber==i}? 'active' : ''"><!--添加class样式 如果是当前页则高亮显示-->
+                        <a th:href="@{'/student/findPageStu?pageNumber='+${i>=TotalPage?TotalPage:i}}"><span th:text="${i}"></span></a>
+                    </li>
+                </th:block>
+                <th:block th:if="${TotalPage >= 5}" th:each="i:${(TotalPage-pageNumber)<=5?#numbers.sequence(TotalPage-5,TotalPage):#numbers.sequence(pageNumber,pageNumber+5)}">
+                    <li th:class="${pageNumber==i}? 'active' : ''"><!--添加class样式 如果是当前页则高亮显示-->
+                        <a th:href="@{'/student/findPageStu?pageNumber='+${i>=TotalPage?TotalPage:i}}"><span th:text="${i}"></span></a>
+                    </li>
+                </th:block>
+
+                <!--下一页-->
+                <li th:unless="${pageNumber ge TotalPage}">
+                    <a th:href="@{'/student/findPageStu?pageNumber='+${pageNumber+1}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{'/student/findPageStu?pageNumber='+${TotalPage}}" aria-label="Next">尾页
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</html>
